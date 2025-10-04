@@ -1,7 +1,9 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { Event, Registration } from '@/types'
-import { events as mockEvents } from '@/data/events'
+
+// Empty events array since the data file was removed
+const mockEvents: Event[] = []
 
 interface EventsState {
   events: Event[]

@@ -1,15 +1,25 @@
 "use client"
 
+import { useState } from "react"
 import { Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function SubscribeForm() {
+  const [message, setMessage] = useState<string | null>(null)
+  const [loading, setLoading] = useState(false)
+
   async function action(formData: FormData) {
     const email = String(formData.get("email") || "").trim()
-    if (!email) return alert("Please enter a valid email.")
+    if (!email) {
+      setMessage("Please enter a valid email.")
+      return
+    }
+
+    setLoading(true)
+    setMessage(null)
 
     try {
-      const res = await fetch("/api/newsletter", {
+      const res = await fetch("/api/merch", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -19,10 +29,17 @@ export default function SubscribeForm() {
           timestamp: new Date().toISOString(),
         }),
       })
+
       if (!res.ok) throw new Error("failed")
-      alert("You’re in! We’ll email you before the drop.")
-    } catch {
-      alert("Something went wrong — please try again shortly.")
+
+      setMessage("You’re in! We’ll email you before the drop.")
+      ;(document.getElementById("email") as HTMLInputElement | null)?.blur()
+      ;(document.getElementById("email") as HTMLInputElement | null)!.value = ""
+    } catch (err) {
+      console.error(err)
+      setMessage("Something went wrong — please try again shortly.")
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -50,11 +67,16 @@ export default function SubscribeForm() {
       {/* Button matches purple/white theme */}
       <Button
         type="submit"
+        disabled={loading}
         className="rounded-xl px-6 py-3 font-semibold bg-purple-600 text-white hover:bg-purple-500 transition-all shadow-lg shadow-purple-500/30"
       >
         <Mail className="h-4 w-4 mr-1" />
-        Notify Me
+        {loading ? 'Sending…' : 'Notify Me'}
       </Button>
+
+      {message && (
+        <div className="sm:col-span-2 mt-1 text-center text-sm text-zinc-300">{message}</div>
+      )}
     </form>
   )
 }
