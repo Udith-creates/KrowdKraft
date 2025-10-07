@@ -16,6 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
       
     steps:
       - name: Checkout repository
@@ -182,17 +183,48 @@ jobs:
 
           echo "README updated successfully"
 
-      - name: Commit and Push Changes
+      - name: Commit changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          
-          # Check if there are changes
           if git diff --quiet README.md; then
             echo "No changes to commit"
-          else
-            git add README.md
-            git commit -m "chore: update README stats [skip ci]"
-            git push
-            echo "Changes committed and pushed"
+            exit 0
           fi
+          git checkout -B chore/update-readme-stats
+          git add README.md
+          git commit -m "chore: update README stats [skip ci]"
+
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: chore/update-readme-stats
+          base: main
+          delete-branch: true
+          title: "chore: update README stats"
+          body: "Automated stats refresh via GitHub Actions."
+
+      - name: Enable auto-merge
+        if: ${{ steps.cpr.outputs.pull-request-number != '' }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = Number('${{ steps.cpr.outputs.pull-request-number }}');
+            const result = await github.graphql(
+              `query($owner:String!, $repo:String!, $number:Int!) {
+                 repository(owner:$owner, name:$repo) {
+                   pullRequest(number:$number) { id }
+                 }
+               }`,
+              { owner: context.repo.owner, repo: context.repo.repo, number: prNumber }
+            );
+            await github.graphql(
+              `mutation($pullRequestId: ID!) {
+                 enablePullRequestAutoMerge(input: {
+                   pullRequestId: $pullRequestId,
+                   mergeMethod: SQUASH
+                 }) { clientMutationId } }`,
+              { pullRequestId: result.repository.pullRequest.id }
+            );
