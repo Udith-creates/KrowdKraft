@@ -62,7 +62,7 @@ function doPost(e) {
     var tag = data.tag || ''
 
   // Your Google Sheet ID (from URL)
-  var SHEET_ID = '1M9-emRFLtFsXIiTnWwflSb7ntKxmKWsnjzGRIuHI5iw'
+  var SHEET_ID = ''
 
     var ss = SpreadsheetApp.openById(SHEET_ID)
     var sheet = ss.getSheets()[0]

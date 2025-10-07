@@ -8,6 +8,7 @@ import PastCollaborations from "@/components/sections/community/past-collaborati
 import Footer from "@/components/sections/footer";
 import ParallaxWrapper from "@/components/parallax-wrapper";
 import LatestArticles from "@/components/sections/community/LatestArticles";
+import DevHub from "@/components/sections/community/dev-hub";
 
 export default function CommunityPage() {
   return (
@@ -17,6 +18,11 @@ export default function CommunityPage() {
       <section id="about">
         <ParallaxWrapper speed={0.3}>
           <CommunityAbout />
+        </ParallaxWrapper>
+      </section>
+      <section id="dev-hub">
+        <ParallaxWrapper speed={0.4}>
+          <DevHub />
         </ParallaxWrapper>
       </section>
       <section id="past-events">

@@ -154,3 +154,20 @@ export interface Registration {
   createdAt: string
 }
 
+export interface GitHubIssue {
+  id: number
+  number: number
+  title: string
+  html_url: string
+  state: string
+  labels: Array<{
+    name: string
+    color: string
+  }>
+  created_at: string
+  updated_at: string
+  user: {
+    login: string
+    avatar_url: string
+  }
+}

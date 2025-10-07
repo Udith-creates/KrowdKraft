@@ -42,7 +42,7 @@ export const teamMembers: TeamMember[] = [
     name: "Amrutha Druthi",
     role: "Community Manager",
     bio: "A detail-oriented planner who thrives on smart strategies",
-    image: "/images/team/hacktober-image.jpg", 
+    image: "/images/team/female-team-image.jpg", 
     social: {
       linkedin: "https://www.linkedin.com/in/amrutha-druthi-8421a8225/",
       twitter: null,
@@ -78,7 +78,7 @@ export const teamMembers: TeamMember[] = [
     name: "Viha Shomikha",
     role: "Community Manager",
     bio: "Experienced brand ambassador passionate about creating genuine connections and growing communities.",
-    image: "/images/team/hacktober-image.jpg",
+    image: "/images/team/female-team-image.jpg",
     social: {
       linkedin: "https://www.linkedin.com/in/vihashomikhaas/",
       twitter: "https://x.com/VihaTacklesBugs",

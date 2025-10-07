@@ -148,6 +148,7 @@ KrowdKraft/
 └── docs/                    # Documentation files
 ```
 
+
 ## 📊 Community Stats
 
 <div align="center">
@@ -165,33 +166,29 @@ KrowdKraft/
 
 | Metric | Count |
 |--------|-------|
-| ⭐ **Stars** | ![Stars](https://img.shields.io/github/stars/DarshanKrishna-DK/KrowdKraft?style=flat-square) |
-| 🍴 **Forks** | ![Forks](https://img.shields.io/github/forks/DarshanKrishna-DK/KrowdKraft?style=flat-square) |
-| 🐛 **Open Issues** | ![Open Issues](https://img.shields.io/github/issues/DarshanKrishna-DK/KrowdKraft?style=flat-square) |
-| ✅ **Closed Issues** | ![Closed Issues](https://img.shields.io/github/issues-closed/DarshanKrishna-DK/KrowdKraft?style=flat-square) |
-| 🔀 **Pull Requests** | ![Pull Requests](https://img.shields.io/github/issues-pr/DarshanKrishna-DK/KrowdKraft?style=flat-square) |
-| 👥 **Contributors** | ![Contributors](https://img.shields.io/github/contributors/DarshanKrishna-DK/KrowdKraft?style=flat-square) |
-| 📝 **Last Commit** | ![Last Commit](https://img.shields.io/github/last-commit/DarshanKrishna-DK/KrowdKraft?style=flat-square) |
-| 📦 **Repository Size** | ![Repo Size](https://img.shields.io/github/repo-size/DarshanKrishna-DK/KrowdKraft?style=flat-square) |
+| ⭐ **Stars** | ${STARS} |
+| 🍴 **Forks** | ${FORKS} |
+| 🐛 **Open Issues** | ${OPEN_ISSUES} |
+| ✅ **Closed Issues** | ${CLOSED_ISSUES} |
+| 👥 **Total Contributors** | ${TOTAL_CONTRIBUTORS} |
 
 ### 🏆 Top Contributors
 
-<!-- CONTRIBUTORS:START -->
-This section will be automatically updated by GitHub Actions to show our top contributors with their avatars and contribution counts.
-<!-- CONTRIBUTORS:END -->
+<table>
+  <tr>
+<td align="center"><a href="https://github.com/DarshanKrishna-DK"><img src="https://avatars.githubusercontent.com/u/80464993?v=4" width="100px;" alt="DarshanKrishna-DK"/><br /><sub><b>DarshanKrishna-DK</b></sub></a><br />27 contributions</td>
+<td align="center"><a href="https://github.com/HarjobandeepSingh"><img src="https://avatars.githubusercontent.com/u/81474463?v=4" width="100px;" alt="HarjobandeepSingh"/><br /><sub><b>HarjobandeepSingh</b></sub></a><br />4 contributions</td>
+<td align="center"><a href="https://github.com/amitkushh"><img src="https://avatars.githubusercontent.com/u/140083127?v=4" width="100px;" alt="amitkushh"/><br /><sub><b>amitkushh</b></sub></a><br />2 contributions</td>
+<td align="center"><a href="https://github.com/Nel4Nelson"><img src="https://avatars.githubusercontent.com/u/79995989?v=4" width="100px;" alt="Nel4Nelson"/><br /><sub><b>Nel4Nelson</b></sub></a><br />2 contributions</td>
+<td align="center"><a href="https://github.com/rishabhrawat05"><img src="https://avatars.githubusercontent.com/u/140707297?v=4" width="100px;" alt="rishabhrawat05"/><br /><sub><b>rishabhrawat05</b></sub></a><br />2 contributions</td>
+  </tr>
+</table>
 
 <div align="center">
-  
-[![Contributors Graph](https://contrib.rocks/image?repo=DarshanKrishna-DK/KrowdKraft)](https://github.com/DarshanKrishna-DK/KrowdKraft/graphs/contributors)
-
-</div>
-
-<div align="center">
-  <i>📊 Stats updated automatically via GitHub Actions • Last updated: Auto-generated</i>
+  <i>Stats updated daily via GitHub Actions</i>
 </div>
 
 ---
-
 ## How to Contribute
 
 We welcome contributions from developers of all skill levels! Whether you are fixing bugs, adding new features, improving documentation, or enhancing the user experience, your contributions are valuable.
