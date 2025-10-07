@@ -31,9 +31,9 @@ export const collaborators: Collaborator[] = [
     type: 'institution'
   },
   {
-    name: "HiDevs",
-    logo: "HD",
-    logoImage: "/images/partners/hidevs.png",
+    name: "</DevBraze>",
+    logo: "DevBraze",
+    logoImage: "/images/partners/Devbraze_logo.png",
     type: 'community'
   }
 ]
