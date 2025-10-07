@@ -183,19 +183,19 @@ jobs:
 
           echo "README updated successfully"
 
-      - name: Commit changes
+      - name: Detect README changes
+        id: changes
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          if git diff --quiet README.md; then
-            echo "No changes to commit"
-            exit 0
+          if git diff --quiet -- README.md; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "No changes"
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "README changed"
           fi
-          git checkout -B chore/update-readme-stats
-          git add README.md
-          git commit -m "chore: update README stats [skip ci]"
 
       - name: Create Pull Request
+        if: ${{ steps.changes.outputs.changed == 'true' }}
         id: cpr
         uses: peter-evans/create-pull-request@v6
         with:
@@ -205,14 +205,19 @@ jobs:
           delete-branch: true
           title: "chore: update README stats"
           body: "Automated stats refresh via GitHub Actions."
+          commit-message: "chore: update README stats [skip ci]"
+          author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+          committer: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+          add-paths: |
+            README.md
 
       - name: Enable auto-merge
-        if: ${{ steps.cpr.outputs.pull-request-number != '' }}
+        if: ${{ steps.changes.outputs.changed == 'true' && steps.cpr.outputs.pull-request-number }}
         uses: actions/github-script@v7
         with:
           script: |
             const prNumber = Number('${{ steps.cpr.outputs.pull-request-number }}');
-            const result = await github.graphql(
+            const { repository } = await github.graphql(
               `query($owner:String!, $repo:String!, $number:Int!) {
                  repository(owner:$owner, name:$repo) {
                    pullRequest(number:$number) { id }
@@ -226,5 +231,5 @@ jobs:
                    pullRequestId: $pullRequestId,
                    mergeMethod: SQUASH
                  }) { clientMutationId } }`,
-              { pullRequestId: result.repository.pullRequest.id }
+              { pullRequestId: repository.pullRequest.id }
             );
