@@ -270,27 +270,12 @@ export default function DevHub() {
                     className="mt-10"
                 >
                     <div className="relative flex justify-center mb-6">
-                            {/* animated glowing stars behind the heading (render via portal to avoid clipping) */}
-                            <PortalStars />
-                            <h3 className="relative spotlight-title text-2xl sm:text-3xl font-semibold px-4">Contributor Spotlight</h3>
-                        </div>
+                        <h3 className="relative spotlight-title text-2xl sm:text-3xl font-semibold px-4">Contributor Spotlight</h3>
+                    </div>
                     <ContributorSpotlight />
 
                     <style jsx>{`
-                        .star { position: absolute; border-radius: 50%; pointer-events: none; z-index: 0; }
                         .spotlight-title { position: relative; z-index: 10; }
-
-                        /* Larger, brighter glows positioned behind the heading */
-                        .star-1 { left: 18%; top: 8px; width: 44px; height: 44px; background: radial-gradient(circle at 30% 30%, rgba(99,102,241,0.95), rgba(99,102,241,0.08)); box-shadow: 0 0 28px rgba(99,102,241,0.6); filter: blur(6px); opacity: 0.95; animation: starPulse 3s ease-in-out infinite; }
-                        .star-2 { left: 36%; top: -2px; width: 32px; height: 32px; background: radial-gradient(circle at 30% 30%, rgba(236,72,153,0.95), rgba(236,72,153,0.06)); box-shadow: 0 0 26px rgba(236,72,153,0.5); filter: blur(5px); opacity: 0.9; animation: starPulse 3.6s ease-in-out infinite 0.2s; }
-                        .star-3 { left: 58%; top: 4px; width: 36px; height: 36px; background: radial-gradient(circle at 30% 30%, rgba(245,158,11,0.95), rgba(245,158,11,0.06)); box-shadow: 0 0 26px rgba(245,158,11,0.45); filter: blur(5px); opacity: 0.9; animation: starPulse 4s ease-in-out infinite 0.4s; }
-                        .star-4 { left: 78%; top: -6px; width: 28px; height: 28px; background: radial-gradient(circle at 30% 30%, rgba(56,189,248,0.95), rgba(56,189,248,0.06)); box-shadow: 0 0 22px rgba(56,189,248,0.45); filter: blur(5px); opacity: 0.9; animation: starPulse 3.2s ease-in-out infinite 0.1s; }
-
-                        @keyframes starPulse {
-                            0% { transform: scale(0.95); opacity: 0.6; filter: blur(6px); }
-                            50% { transform: scale(1.18); opacity: 1; filter: blur(3px); }
-                            100% { transform: scale(0.95); opacity: 0.6; filter: blur(6px); }
-                        }
                     `}</style>
                 </motion.div>
 
