@@ -56,8 +56,8 @@ jobs:
 
             const totalContributors = contributors.length;
 
-            // Get top 5 contributors
-            const topContributors = contributors.slice(0, 5).map(contributor => ({
+            // Get top 6 contributors
+            const topContributors = contributors.slice(0, 6).map(contributor => ({
               login: contributor.login,
               avatar_url: contributor.avatar_url,
               contributions: contributor.contributions,
