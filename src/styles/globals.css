@@ -78,6 +78,12 @@
     background-size: 100px 100px, 80px 80px, 120px 120px;
     pointer-events: none;
   }
+  
+  /* Section spacing utility to create consistent vertical rhythm */
+  .section {
+    padding-top: 6rem; /* 24 */
+    padding-bottom: 6rem; /* 24 */
+  }
 }
 
 @layer utilities {

@@ -43,7 +43,7 @@ function StaticParticle({
 export default function Hero() {
 
   return (
-    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
+  <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden section">
       {/* 3D Globe Background */}
       <Suspense fallback={null}>
         <SimpleGlobe3D />
@@ -135,7 +135,7 @@ export default function Hero() {
                 z: 10
               }}
               whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 600, damping: 25, duration: 0.2 }}
+              transition={{ type: "spring", stiffness: 900, damping: 40, duration: 0.12 }}
               style={{ transformStyle: "preserve-3d" }}
             >
               <Button 

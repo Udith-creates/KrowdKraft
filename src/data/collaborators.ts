@@ -33,7 +33,8 @@ export const collaborators: Collaborator[] = [
   {
     name: "</DevBraze>",
     logo: "DevBraze",
-    logoImage: "/images/partners/Devbraze_logo.png",
+    // match actual filename casing in public/images/partners
+    logoImage: "/images/partners/Devbraze_Logo.png",
     type: 'community'
   }
 ]

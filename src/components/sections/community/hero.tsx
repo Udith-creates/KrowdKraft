@@ -123,7 +123,7 @@ export default function CommunityHero() {
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-black to-gray-900 pt-20">
+  <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-black to-gray-900 pt-20 section">
       {/* Enhanced Particle Background (reused from main hero) */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Main particles */}
@@ -216,7 +216,7 @@ export default function CommunityHero() {
                  z: 10
                }}
                whileTap={{ scale: 0.95 }}
-               transition={{ type: "spring", stiffness: 300, damping: 20 }}
+               transition={{ type: "spring", stiffness: 700, damping: 30, duration: 0.14 }}
                style={{ transformStyle: "preserve-3d" }}
              >
                <Button 

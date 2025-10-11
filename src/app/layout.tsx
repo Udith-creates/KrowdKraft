@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { QueryProvider } from "@/providers/query-provider"
 import Script from "next/script"
 import "@/styles/globals.css"
+import ScrollToTop from '@/components/ScrollToTop'
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -49,6 +50,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             {children}
+            <ScrollToTop />
           </ThemeProvider>
         </QueryProvider>
       </body>

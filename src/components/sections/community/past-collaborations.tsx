@@ -67,7 +67,7 @@ export default function PastCollaborations() {
   }
 
   return (
-    <section className="py-24 bg-gradient-to-b from-secondary/10 via-secondary/20 to-secondary/10 relative overflow-hidden">
+  <section className="py-24 bg-gradient-to-b from-secondary/10 via-secondary/20 to-secondary/10 relative overflow-hidden section">
       {/* Ambient Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl opacity-50 animate-pulse"></div>

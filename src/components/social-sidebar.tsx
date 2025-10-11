@@ -59,7 +59,7 @@ export default function SocialSidebar() {
               whileHover={{ 
                 scale: 1.2,
                 rotateZ: 5,
-                transition: { type: "spring", stiffness: 300, damping: 30 }
+                transition: { type: "spring", stiffness: 700, damping: 30, duration: 0.12 }
               }}
               whileTap={{ scale: 0.9 }}
               className="group relative"
